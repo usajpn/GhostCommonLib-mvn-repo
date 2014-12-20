@@ -6,7 +6,7 @@
 
     <groupId>GhostCommonLib</groupId>
     <artifactId>GhostCommonLib</artifactId>
-    <version>0.23-BETA</version>
+    <version>0.24-BETA</version>
 
     <properties>
            <internal.repo.directory>mvn-repo</internal.repo.directory>
