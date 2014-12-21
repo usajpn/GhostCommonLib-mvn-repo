@@ -8,15 +8,49 @@
     <artifactId>GhostCommonLib</artifactId>
     <version>0.24-BETA</version>
 
-    <properties>
-           <internal.repo.directory>mvn-repo</internal.repo.directory>
+	<properties>
+		<github.global.server>github</github.global.server>
+		<internal.repo.directory>mvn-repo</internal.repo.directory>
     </properties>
     <distributionManagement>
-        <repository>
+		<repository>
             <id>internal.repo</id>
             <name>Temporary Staging Repository</name>
-            <url>file://${internal.repo.directory}</url>
-        </repository>
+			<url>file://${internal.repo.directory}</url>
+		</repository>
 	</distributionManagement>
 
+   <build>
+		<plugins>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.9</version>
+                <configuration>
+                    <merge>true</merge>
+                    <message>Maven artifacts for ${project.version}</message>
+                    <!-- Jekyllという静的ページを生成するツールは無効 -->
+                    <noJekyll>true</noJekyll>
+                    <outputDirectory>${project.build.directory}</outputDirectory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <!-- GitHubリポジトリ名 -->
+                    <repositoryName>GhostCommonLib-mvn-repo</repositoryName>
+                    <!-- GitHubユーザ名  -->
+                    <repositoryOwner>usajpn</repositoryOwner>
+                </configuration>
+                <executions>
+                    <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
+
