@@ -3,12 +3,13 @@
   <groupId>GhostCommonLib</groupId>
   <artifactId>GhostCommonLib</artifactId>
   <versioning>
-    <release>0.25-BETA</release>
+    <release>0.26-BETA</release>
     <versions>
       <version>0.23-BETA</version>
       <version>0.24-BETA</version>
       <version>0.25-BETA</version>
+      <version>0.26-BETA</version>
     </versions>
-    <lastUpdated>20141221033854</lastUpdated>
+    <lastUpdated>20141221060200</lastUpdated>
   </versioning>
 </metadata>
